@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple DEX DApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="scripts.js"></script>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <div class="max-w-4xl mx-auto py-10 px-6">
+      <!-- Title -->
+      <h1 class="text-4xl font-bold text-center mb-8">Simple DEX DApp</h1>
+
+      <!-- MetaMask Connect Module -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4">Connect to MetaMask</h2>
+        <button
+          id="connectMetaMask"
+          class="w-full py-2 bg-yellow-600 hover:bg-yellow-700 rounded-md text-lg"
+        >
+          Connect MetaMask
+        </button>
+        <p
+          id="status"
+          class="mt-4 text-center text-sm text-gray-400 hidden"
+          aria-live="polite"
+        >
+          Please connect your MetaMask wallet.
+        </p>
+      </div>
+
+      <!-- Contract Data Module -->
+      <div
+        id="dataModule"
+        class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 hidden"
+        aria-hidden="true"
+      >
+        <h2 class="text-2xl font-semibold mb-4">Contract Data</h2>
+        <div id="contractData" class="space-y-4">
+          <!-- Will be populated dynamically -->
+        </div>
+      </div>
+
+      <!-- Liquidity Management Module -->
+      <div
+        id="liquidityModule"
+        class="bg-gray-800 p-4 rounded-md text-white hidden"
+        aria-hidden="true"
+      >
+        <h3 class="text-lg font-bold mb-4">Liquidity Management</h3>
+        <div class="mb-4">
+          <label for="liquidityAction" class="block mb-2">Select Action</label>
+          <select
+            id="liquidityAction"
+            class="w-full p-2 bg-gray-700 rounded-md text-white"
+          >
+            <option value="add">Add Liquidity</option>
+            <option value="remove">Remove Liquidity</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="amountA" class="sr-only">Amount of Token A</label>
+          <input
+            type="number"
+            id="amountA"
+            min="1"
+            placeholder="Amount of Token A"
+            class="p-2 bg-gray-700 rounded-md"
+          />
+          <label for="amountB" class="sr-only">Amount of Token B</label>
+          <input
+            type="number"
+            id="amountB"
+            min="1"
+            placeholder="Amount of Token B"
+            class="p-2 bg-gray-700 rounded-md"
+          />
+          <button id="liquidityActionBtn" class="bg-blue-600 p-2 rounded-md">
+            Confirm Action
+          </button>
+        </div>
+      </div>
+
+      <!-- Token Swap Module -->
+      <div
+        id="swapModule"
+        class="bg-gray-800 p-4 rounded-md text-white mt-8 hidden"
+        aria-hidden="true"
+      >
+        <h3 class="text-lg font-bold mb-4">Swap Tokens</h3>
+        <div class="mb-4">
+          <label for="swapAction" class="block mb-2">Select Action</label>
+          <select
+            id="swapAction"
+            class="w-full p-2 bg-gray-700 rounded-md text-white"
+          >
+            <option value="AtoB">Token A for Token B</option>
+            <option value="BtoA">Token B for Token A</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="amountIn" class="sr-only">Token Amount</label>
+          <input
+            type="number"
+            id="amountIn"
+            min="1"
+            placeholder="Token amount"
+            class="p-2 bg-gray-700 rounded-md"
+          />
+          <button id="swapActionButton" class="bg-purple-600 p-2 rounded-md">
+            Confirm Swap
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
